@@ -1,0 +1,69 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3/border-radius";
+
+@mixin only-top-radius($radius) {
+	-moz-border-radius-topleft: $radius;
+	-webkit-border-top-left-radius: $radius;
+	 border-top-left-radius: $radius;
+	-moz-border-radius-topright: $radius;
+	-webkit-border-top-right-radius: $radius;
+	border-top-right-radius: $radius;
+	}
+	
+$blue : #D2E6EF;
+$drkblue : #1F579B;
+$altblue : #1D67AD;
+$blusilv : #CADBE2;
+$b-width : 900px;
+$nav-height : 50px;
+$margin : 24px;
+$padding : 6px;
+$tabs : 8;
+
+body {
+background: $blue;
+}
+
+#top-nav {
+	@include border-radius(8px);
+	background: $blusilv;
+	position: relative;
+	width: $b-width;
+	height: $nav-height + (2 * $padding);
+	padding: $padding * 2;
+	padding-bottom: 0;
+	margin-top: $margin;
+	margin-left: auto;
+	margin-right: auto;
+	ul {
+	width: ($b-width - (2 * $padding));
+	margin-left: auto;
+	margin-right: auto;
+	style-type: none;
+	text-align: center;
+	float: left;
+		li {
+		@include only-top-radius(8px);
+		height: $nav-height;
+		display: inline-block;
+		background: $drkblue;
+		padding: $padding;
+		width: ($b-width - (2 * $margin)) / $tabs;
+		color: silver;
+		font-size: 18px;
+		vertical-align: top;
+			&:hover {
+			background: $altblue;
+			color: white;
+			}
+		}
+	}
+}
+
+
+
